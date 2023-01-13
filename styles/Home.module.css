@@ -1,91 +1,142 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
+.cardContainer {
+  width: 1260px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 26px;
+}
+
+.centerCards {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #ffffff;
+  height: 400px;
+  width: 400px;
+  border-radius: 3px;
+  padding-bottom: 30px;
 }
 
-.title a {
-  color: #0070f3;
+.talkie {
+  margin-top: 26px;
+  align-self: center;
+  margin-bottom: -15px;
+}
+
+.rabbit {
+  margin-top: 55px;
+  align-self: center;
+}
+
+.shield {
+  margin-top: 37px;
+  align-self: center;
+  margin-bottom: -15px;
+}
+
+.cardTitle {
+  width: fit-content;
+  color: #222222;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 54px;
+  margin-left: 60px;
+  margin-bottom: -5px;
+}
+
+.cardText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px;
+  color: #858585;
+  margin-left: 60px;
+  margin-bottom: 25px;
+  width: 289px;
+  text-align: justify;
+}
+
+.button {
   text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0 0 1rem;
-  line-height: 1.15;
-  font-size: 3.6rem;
-}
-
-.title {
+  width: 130px;
+  height: 45px;
+  align-self: center;
+  background-color: #DEBF79;
   text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #ffffff;
 }
 
-.title,
-.description {
-  text-align: center;
-}
-
-
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.grid {
+.jsPuzzle {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  max-width: 800px;
-  margin-top: 3rem;
+  flex-direction: column;
+  margin-top: 65px;
 }
 
-.card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+.headingOne {
+  height: 72px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 72px;
+  color: #ffffff;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.accentLine {
+  width: 211px;
+  border: 2.1px solid #DEBF79;
+  background-color: #DEBF79;
 }
 
-.card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.puzzleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 26px;
+  width: 1248px;
+
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.puzzleText {
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 30px;
+
 }
 
-.logo {
-  height: 1em;
+.puzzleLink {  
+  display: inline-block;
+  color:#DEBF79;
+  width: fit-content;
+  margin: 0px;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+.puzzleLink:hover {
+  color: #f5f5f5;
+}
+
+
+/* -----FOR VIEWPORTS UNDER 1280px WIDE----- */
+
+@media (max-width: 1280px) {
+  .cardContainer {
+    width: 400px;
+    grid-template-columns: 400px;
+    gap: 8px;
+    margin-top: 31px;
+  }
+
+  .jsPuzzle {
+    margin-top: 31px;
+    padding-left: 32px;
+    width: 352px;
+  }
+
+  .puzzleText {
+    text-align: justify;
+    margin-top: 5px;
+    width: 352px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
   }
 }
