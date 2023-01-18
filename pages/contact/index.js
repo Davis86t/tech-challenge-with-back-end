@@ -2,15 +2,10 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Contact.module.css';
-import { Poppins } from '@next/font/google';
-
-const poppins = Poppins({
-  weight: ['300', '500', '700'],
-  display: 'swap'
-})
+import ContactForm from '../../components/contactForm';
 
 export default function Contact() {
-  
+
   return (
     <>
       <Head>
@@ -47,16 +42,7 @@ export default function Contact() {
             <h2 className={styles.headingTwo}>
               Heading Two
             </h2>
-            <div className={styles.inputContainer}>
-              <input className={`${styles.first} ${poppins.className}`} placeholder='First Name' />
-              <input className={`${styles.last} ${poppins.className}`} placeholder='Last Name' />
-              <input className={`${styles.title} ${poppins.className}`} placeholder='Title' />
-              <input className={`${styles.email} ${poppins.className}`} placeholder='Email' />
-              <input className={`${styles.message} ${poppins.className}`} placeholder='Message' />
-            </div>
-            <div className={styles.button}>
-              Submit
-            </div>
+            <ContactForm />
           </div>
         </section>
       </section>
