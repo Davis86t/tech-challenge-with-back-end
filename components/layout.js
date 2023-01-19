@@ -16,7 +16,7 @@ export default function Layout({ children, home }) {
         />
         <meta
           property="og:image"
-          content='/images/techchallenge.png'
+          content='/images/Techchallenge.png'
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
         <>
           <Image
             priority
-            src="/images/logo.png"
+            src="/images/Logo.png"
             className={styles.logo}
             height={73}
             width={350}

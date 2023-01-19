@@ -30,7 +30,7 @@ export default function Contact({ allPostsData }) {
         <header className={styles.header}>
           <Image
             priority
-            src="/images/logo.png"
+            src="/images/Logo.png"
             className={styles.logo}
             height={73}
             width={350}

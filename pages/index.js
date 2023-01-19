@@ -54,7 +54,7 @@ export default function Home({ allPostsData }) {
         <div className={styles.centerCards}>
           <Image
             priority
-            src='/images/talkie.png'
+            src='/images/Talkie.png'
             className={styles.talkie}
             height={106}
             width={51}
@@ -69,7 +69,7 @@ export default function Home({ allPostsData }) {
         <div className={styles.centerCards}>
           <Image
             priority
-            src='/images/rabbit.png'
+            src='/images/Rabbit.png'
             className={styles.rabbit}
             height={62}
             width={103}
@@ -84,7 +84,7 @@ export default function Home({ allPostsData }) {
         <div className={styles.centerCards}>
           <Image
             priority
-            src='/images/shield.png'
+            src='/images/Shield.png'
             className={styles.shield}
             height={98}
             width={98}
