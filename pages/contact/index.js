@@ -4,7 +4,22 @@ import Image from 'next/image';
 import styles from '../../styles/Contact.module.css';
 import ContactForm from '../../components/contactForm';
 
-export default function Contact() {
+// Fetch data for title and lorem section from external api //
+export async function getStaticProps() {
+  const res = await fetch('https://api.mwi.dev/content/contact');
+  const allPostsData = await res.json();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Contact({ allPostsData }) {
+
+  const title = allPostsData.data[0].title
+  const content = allPostsData.data[0].content
+  const dataArr = content.split('.');
 
   return (
     <>
@@ -28,13 +43,13 @@ export default function Contact() {
         <section className={styles.body}>
           <div className={styles.leftContainer}>
             <div className={styles.headingOne}>
-              Heading One
+              {`${title}`}
               <div className={styles.accentLine}></div>
               <p className={styles.leftText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do dos eiusmod tempor incididunt ut labore et trace dolore magna aliqua.
+                {`${dataArr[0]}${'.'}`}
                 <br />
                 <br />
-                Proin sagittis nisl rhoncus mattis rhoncus. At augue eget arcu dictum varius duis at consectetur lorem.
+                {`${dataArr[1]}${'. '}${dataArr[2]}${'.'}`}
               </p>
             </div>
           </div>

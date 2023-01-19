@@ -10,20 +10,44 @@ const poppins = Poppins({
 export default function ContactForm() {
 
   const [invalid, setInvalid] = useState(false);
-  const [emailCont, setEmailCont] = useState('');
+  const [first, setFirst] = useState('');
+  const [last, setLast] = useState('');
+  const [title, setTitle] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   function handleChange(e) {
     let val = e.target.value;
-    setEmailCont(val);
+    setEmail(val);
     setInvalid(false);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (emailCont == '') {
+    if (email == '') {
       setInvalid(true);
     } else {
-      setEmailCont('');
+      const postData = async () => {
+        const data = {
+          first_name: first,
+          last_name: last,
+          title: title,
+          email: email,
+          message: message
+        };
+        const response = await fetch('https://api.mwi.dev/contact', {
+          method: "POST",
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        return response.json();
+      };
+      postData();
+      setFirst('');
+      setLast('');
+      setTitle('');
+      setEmail('');
+      setMessage('');
     }
   }
 
@@ -34,22 +58,32 @@ export default function ContactForm() {
           className={`${styles.first} ${poppins.className}`}
           placeholder='First Name'
           name='first_name'
+          type='text'
+          value={first}
+          onChange={(e) => setFirst(e.target.value)}
         />
         <input
           className={`${styles.last} ${poppins.className}`}
           placeholder='Last Name'
           name='last_name'
+          type='text'
+          value={last}
+          onChange={(e) => setLast(e.target.value)}
         />
         <input
           className={`${styles.title} ${poppins.className}`}
           placeholder='Title'
           name='title'
+          type='text'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <input
           className={`${styles.email} ${poppins.className} ${invalid ? styles.emailInvalid : ''}`}
           placeholder='Email'
           name='email'
-          value={emailCont}
+          type='text'
+          value={email}
           onChange={handleChange}
           required
         />
@@ -57,6 +91,9 @@ export default function ContactForm() {
           className={`${styles.message} ${poppins.className}`}
           placeholder='Message'
           name='message'
+          type='text'
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
         />
       </div>
       <button

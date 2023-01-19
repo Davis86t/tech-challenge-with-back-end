@@ -6,7 +6,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import getUniqueArr from '../components/jsPuzzle';
 import Link from 'next/link';
 
-export default function Home() {
+// Fetch data for lorem sections and titles from external api //
+export async function getStaticProps() {
+  const res = await fetch('https://api.mwi.dev/content/home');
+  const allPostsData = await res.json();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({ allPostsData }) {
+
+  const card1 = allPostsData.data[0]
+  const card2 = allPostsData.data[1]
+  const card3 = allPostsData.data[2]
 
   //-----JS PUZZLE-----//
   const [clicked, setClicked] = useState(false);
@@ -19,6 +34,7 @@ export default function Home() {
   function clickHandler() {
     setClicked(true);
     setPuzzArray(uniqueArray);
+    console.log(allPostsData);
     if (clicked) {
       alert("Link has already been clicked! \nPlease see answer below.")
     }
@@ -44,8 +60,8 @@ export default function Home() {
             width={51}
             alt=''
           />
-          <p className={styles.cardTitle}>Heading Two</p>
-          <p className={styles.cardText}>Integer accumsan molestie nisl, id faucibus urna accumsan quis. Proin vulputate, mauris semper maximus.</p>
+          <p className={styles.cardTitle}>{`${card1.title}`}</p>
+          <p className={styles.cardText}>{`${card1.content}`}</p>
           <Link href='/contact' className={styles.button}>
             <p>Learn More</p>
           </Link>
@@ -59,8 +75,8 @@ export default function Home() {
             width={103}
             alt=''
           />
-          <p className={styles.cardTitle}>Heading Two</p>
-          <p className={styles.cardText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+          <p className={styles.cardTitle}>{`${card2.title}`}</p>
+          <p className={styles.cardText}>{`${card2.content}`}</p>
           <Link href='/contact' className={styles.button}>
             <p>Learn More</p>
           </Link>
@@ -74,8 +90,8 @@ export default function Home() {
             width={98}
             alt=''
           />
-          <p className={styles.cardTitle}>Heading Two</p>
-          <p className={styles.cardText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+          <p className={styles.cardTitle}>{`${card3.title}`}</p>
+          <p className={styles.cardText}>{`${card3.content}`}</p>
           <Link href='/contact' className={styles.button}>
             <p>Learn More</p>
           </Link>
