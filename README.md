@@ -1,3 +1,5 @@
+![TechChallenge](https://user-images.githubusercontent.com/78668712/214905758-332ded4f-5b01-4db3-84a1-436912f46078.png)
+
 # Midwestern Interactive Tech Challenge - Challenges 1, 2, and 3
 
 ## This app uses a Next.js front-end and an Express/Sequelize/Postgres Back-end
@@ -19,3 +21,4 @@ You must have Postgres installed on your machine.
 - createdb tanner-tech-challenge
 - npm run seed
 - npm run dev
+
