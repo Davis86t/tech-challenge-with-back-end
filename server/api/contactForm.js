@@ -4,7 +4,6 @@ const { models: { Contact_Form }, } = require('../db');
 // POST /api/contactform
 router.post('/', async (req, res, next) => {
   try {
-    console.log("in router POST before create")
     res.send(await Contact_Form.create(req.body));
   } catch (err) {
     next(err);

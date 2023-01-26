@@ -4,7 +4,8 @@ import { Poppins } from '@next/font/google';
 
 const poppins = Poppins({
   weight: ['300', '500', '700'],
-  display: 'swap'
+  display: 'swap',
+  subsets: ['latin']
 })
 
 export default function ContactForm() {
