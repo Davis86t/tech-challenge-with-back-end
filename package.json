@@ -1,15 +1,29 @@
 {
+  "name": "tanner-tech-challenge",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server & next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "seed": "node script/seed.js"
   },
   "dependencies": {
     "@next/font": "^13.1.1",
-    "@vercel/analytics": "^0.1.8",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
     "next": "latest",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.1"
   }
 }

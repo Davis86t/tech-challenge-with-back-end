@@ -22,27 +22,25 @@ export default function ContactForm() {
     setInvalid(false);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (email == '') {
       setInvalid(true);
     } else {
-      const postData = async () => {
         const data = {
-          first_name: first,
-          last_name: last,
-          title: title,
-          email: email,
-          message: message
+          first_name: e.target.first_name.value,
+          last_name: e.target.last_name.value,
+          title: e.target.title.value,
+          email: e.target.email.value,
+          message: e.target.message.value
         };
-        const response = await fetch('https://api.mwi.dev/contact', {
+        console.log(JSON.stringify(data))
+        const response = await fetch('http://localhost:8080/api/contactForm', {
           method: "POST",
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(data),
         });
-        return response.json();
-      };
-      postData();
+
       setFirst('');
       setLast('');
       setTitle('');
@@ -52,7 +50,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form id={'contactForm'}>
+    <form id={'contactForm'} onSubmit={handleSubmit}>
       <div className={styles.inputContainer} id={'contactForm'}>
         <input
           className={`${styles.first} ${poppins.className}`}
@@ -98,7 +96,6 @@ export default function ContactForm() {
       </div>
       <button
         className={styles.button}
-        onClick={handleSubmit}
         type='submit'
         formNoValidate
       >

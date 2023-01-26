@@ -4,21 +4,21 @@ import Image from 'next/image';
 import styles from '../../styles/Contact.module.css';
 import ContactForm from '../../components/contactForm';
 
-// Fetch data for title and lorem section from external api //
+// Fetch data for title and lorem section from local database //
 export async function getStaticProps() {
-  const res = await fetch('https://api.mwi.dev/content/contact');
-  const allPostsData = await res.json();
+  const res = await fetch('http://localhost:8080/api/contactContents');
+  const data = await res.json();
   return {
     props: {
-      allPostsData,
+      data,
     },
   };
 }
 
-export default function Contact({ allPostsData }) {
+export default function Contact({ data }) {
 
-  const title = allPostsData.data[0].title
-  const content = allPostsData.data[0].content
+  const title = data[0].title
+  const content = data[0].content
   const dataArr = content.split('.');
 
   return (

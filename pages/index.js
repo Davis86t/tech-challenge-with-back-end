@@ -6,22 +6,22 @@ import React, { useState, useRef, useEffect } from 'react';
 import getUniqueArr from '../components/jsPuzzle';
 import Link from 'next/link';
 
-// Fetch data for lorem sections and titles from external api //
+// Fetch data for lorem sections and titles from local database //
 export async function getStaticProps() {
-  const res = await fetch('https://api.mwi.dev/content/home');
-  const allPostsData = await res.json();
+  const res = await fetch('http://localhost:8080/api/homeContents');
+  const data = await res.json();
   return {
     props: {
-      allPostsData,
+      data,
     },
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ data }) {
 
-  const card1 = allPostsData.data[0]
-  const card2 = allPostsData.data[1]
-  const card3 = allPostsData.data[2]
+  const card1 = data[0]
+  const card2 = data[1]
+  const card3 = data[2]
 
   //-----JS PUZZLE-----//
   const [clicked, setClicked] = useState(false);
@@ -34,7 +34,6 @@ export default function Home({ allPostsData }) {
   function clickHandler() {
     setClicked(true);
     setPuzzArray(uniqueArray);
-    console.log(allPostsData);
     if (clicked) {
       alert("Link has already been clicked! \nPlease see answer below.")
     }
